@@ -26,7 +26,7 @@ allow-lan: false
 # '*': bind all IP addresses
 # 192.168.122.11: bind a single IPv4 address
 # "[aaaa::a8aa:ff:fe09:57d8]": bind a single IPv6 address
-bind-address: '*'
+bind-address: "*"
 
 # Clash router working mode
 # rule: rule-based packet routing
@@ -83,21 +83,21 @@ dns:
   enhanced-mode: redir-host # or fake-ip
   fake-ip-range: 198.18.0.1/16 # Fake IP addresses pool CIDR
   # use-hosts: true # lookup hosts and return IP record
-  
+
   # Hostnames in this list will not be resolved with fake IPs
   # i.e. questions to these domain names will always be answered with their
   # real IP addresses
   fake-ip-filter:
-    - '*.lan'
+    - "*.lan"
     - localhost.ptlogin2.qq.com
-    - '+.srv.nintendo.net'
-    - '+.stun.playstation.net'
-    - '+.msftconnecttest.com'
-    - '+.msftncsi.com'
-    - '+.xboxlive.com'
-    - 'msftconnecttest.com'
-    - 'xbox.*.microsoft.com'
-  
+    - "+.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "+.xboxlive.com"
+    - "msftconnecttest.com"
+    - "xbox.*.microsoft.com"
+
   # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
   # All DNS questions are sent directly to the nameserver, without proxies
   # involved. Clash answers the DNS question with the first result gathered.
@@ -145,7 +145,7 @@ dns:
 #   macOS-auto-detect-interface: true # conflict with interface-name
 
 proxies:
-# 支持的协议及加密算法示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
+  # 支持的协议及加密算法示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
 
   # Shadowsocks(Websocket + TLS)
   - name: "CN1"
@@ -203,8 +203,8 @@ proxy-providers:
   #   interval: # 自动更新间隔，仅在类型为 HTTP 时可用
   #   health-check: # 健康检查选项从此处开始
   #     enable:
-  #     url: 
-  #     interval: 
+  #     url:
+  #     interval:
 
   # DuckDuckGo: # 冲鸭机场订阅链接
   #   type: http
@@ -217,7 +217,7 @@ proxy-providers:
   #     url: http://www.gstatic.com/generate_204
 
 proxy-groups:
-# 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
+  # 策略组示例请查阅 Clash 项目 README 以使用最新格式：https://github.com/Dreamacro/clash/wiki/configuration
 
   # Fallback
   - name: "Fallback"
@@ -228,7 +228,7 @@ proxy-groups:
       - CN1
       - CN2
       - CN3
-    url: 'http://cp.cloudflare.com/generate_204'
+    url: "http://cp.cloudflare.com/generate_204"
     interval: 300
 
   # 代理节点选择
@@ -252,11 +252,10 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingMedia/StreamingCN.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/StreamingCN.yaml
+    url: https://cdn.jsdelivr.net/gh/ZvonimirSun/Profiles@master/Clash/RuleSet/StreamingMedia/StreamingCN.yaml
     interval: 86400
 
 rules:
-
   - RULE-SET,StreamingCN,PROXY
 
   # Local Area Network
